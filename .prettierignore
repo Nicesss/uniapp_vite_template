@@ -1,0 +1,12 @@
+node_modules
+package.json
+
+.gitignore
+*.lock
+
+dist
+lib
+src/shime-uni.d.ts
+shims-uni.d.ts
+
+
