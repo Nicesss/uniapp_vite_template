@@ -1,0 +1,22 @@
+stages:
+    - name: compile
+      steps:
+          - runScriptConfig:
+                image: node:16.13.0-slim
+                shellScript: |-
+                    yarn config set registry https://nexus3.tineco.com/repository/npm-group/
+                    yarn install
+                    yarn build
+    - name: push-image
+      steps:
+          - publishImageConfig:
+                dockerfilePath: ./Dockerfile
+                buildContext: .
+                tag: tineco/<%= name %>:${CICD_GIT_BRANCH}
+                pushRemote: true
+                registry: nexus3.tineco.com
+timeout: 60
+branch:
+    include:
+        - release-*
+notification: {}
