@@ -4,6 +4,7 @@
         <uni-card>
             <text class="title">{{ title }}</text>
         </uni-card>
+        <u-icon name="chat" color="#2979ff" size="28"></u-icon>
     </view>
 </template>
 
@@ -43,6 +44,6 @@ export default {
 
 .title {
     font-size: 36rpx;
-    color: $uni-color-success;
+    color: $uni-color-primary;
 }
 </style>
